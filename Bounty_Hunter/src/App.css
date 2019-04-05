@@ -1,0 +1,21 @@
+/* .header{
+  padding: 15px;
+} */
+
+.set_height{
+  height: 100vh;
+  padding: 20px;
+}
+
+.margin_box{
+  margin: 0px 10px 0px 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.question{
+  height: 50%s;
+} 
