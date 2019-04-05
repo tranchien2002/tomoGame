@@ -1,7 +1,3 @@
-/* .header{
-  padding: 15px;
-} */
-
 .set_height{
   height: 100vh;
   padding: 20px;
@@ -17,5 +13,21 @@
 }
 
 .question{
-  height: 50%s;
-} 
+  height: 50%;
+}
+
+.question_box{
+  height: 100%;
+}
+
+.question_position{
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  /* background-color: blue; */
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
