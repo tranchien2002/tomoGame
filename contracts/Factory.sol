@@ -1,0 +1,25 @@
+pragma solidity ^0.5.0;
+import "./AccessControl.sol";
+import "./SafeMath.sol";
+import "./Game.sol";
+
+contract Factory is AccessControl {
+
+    address[] public games;
+
+    function createGame() 
+        public 
+        onlyCeo
+        returns(address) 
+    {
+        address game = address(new Game());
+        games.push(game);
+        return game;
+    }
+
+    function getAllGames() view public returns (address[] memory) {
+        return games;
+    }
+
+    function() external payable {}
+}
