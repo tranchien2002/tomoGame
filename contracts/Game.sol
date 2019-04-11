@@ -5,7 +5,6 @@ import "./SafeMath.sol";
 contract Game is AccessControl {
     uint public bounty;
     using SafeMath256 for uint256;
-    using SafeMath8 for uint8;
     address payable[] public winners;
     bytes32 private seed;
 
