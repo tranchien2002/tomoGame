@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 import "./AccessControl.sol";
 import "./SafeMath.sol";
 
-contract Game2 is AccessControl {
+contract Game is AccessControl {
     uint public bounty;
     using SafeMath256 for uint256;
     address payable[] public winners;
