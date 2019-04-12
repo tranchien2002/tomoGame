@@ -3,6 +3,10 @@ pragma solidity ^0.5.0;
 contract AccessControl {
     address public ceoAddress;
 
+    constructor() public {
+        ceoAddress = msg.sender;
+    }
+
     modifier onlyCeo() {
         require(msg.sender == ceoAddress);
         _;
