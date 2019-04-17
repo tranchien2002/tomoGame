@@ -12,7 +12,7 @@ contract Factory is AccessControl {
         onlyCeo
         returns(address) 
     {
-        address game = address(new Game());
+        address game = address(new Game(msg.sender));
         games.push(game);
         return game;
     }

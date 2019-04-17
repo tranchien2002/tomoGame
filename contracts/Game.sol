@@ -20,14 +20,15 @@ contract Game is AccessControl {
     uint8 public currentQuestion = 0;
     uint256 public questionBounty;
     uint public deadlineQuestion;
-    bytes32 private seed;
+    //bytes32 private seed;
 
     event NewQuestion(uint8 currentQuestion);
     
-    constructor() public {
-        seed = keccak256(
-            abi.encodePacked(blockhash(block.number - 1), msg.sender)
-        ); 
+    constructor(address payable _ceoAddress) public {
+        ceoAddress = _ceoAddress;
+        // seed = keccak256(
+        //     abi.encodePacked(blockhash(block.number - 1), msg.sender)
+        // ); 
     }
     
     /*
