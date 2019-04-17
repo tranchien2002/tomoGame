@@ -98,7 +98,7 @@ contract Game is AccessControl {
         external 
         payable 
     {
-        require(asked[currentQuestion]);
+        require(asked[currentQuestion]); // chỉ được trả lời sau khi câu hỏi đã được đưa ra 
         require(currentQuestion < 10, "one round has only 10 question");
         require(msg.sender != ceoAddress);
         require(msg.value > 2 * 10 ** 18, "fee must be > 2 TOMO");
