@@ -1,6 +1,6 @@
 'use strict'
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = 'bomb wheat doctor ladder talent usage pipe quick detail eye culture garbage';
+var mnemonic = 'below aware hen gap hole city tower announce vapor pumpkin steak either';
 
 module.exports = {
   networks: {
@@ -15,8 +15,7 @@ module.exports = {
         "https://testnet.tomochain.com",
         0,
         1,
-        true,
-        "m/44'/889'/0'/0/",
+        true
       ),
       network_id: "89",
       gas: 3000000,

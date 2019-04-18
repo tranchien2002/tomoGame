@@ -1,6 +1,5 @@
 pragma solidity ^0.5.0;
 import "./AccessControl.sol";
-import "./SafeMath.sol";
 import "./Game.sol";
 
 contract Factory is AccessControl {
