@@ -1,11 +1,9 @@
 pragma solidity ^0.5.0;
 
 import "./AccessControl.sol";
-import "./SafeMath.sol";
 
 contract Game is AccessControl {
     uint public bounty;
-    using SafeMath256 for uint256;
     address payable[] public winners;
 
     address payable[] public players;
@@ -20,34 +18,12 @@ contract Game is AccessControl {
     uint8 public currentQuestion = 0;
     uint256 public questionBounty;
     uint public deadlineQuestion;
-    //bytes32 private seed;
 
     event NewQuestion(uint8 currentQuestion);
     
     constructor(address payable _ceoAddress) public {
         ceoAddress = _ceoAddress;
-        // seed = keccak256(
-        //     abi.encodePacked(blockhash(block.number - 1), msg.sender)
-        // ); 
     }
-    
-    /*
-    function _nextUint() 
-        internal 
-        returns (uint256) 
-    {
-        uint256 next = uint256(blockhash(block.number) ^ seed);
-        seed = keccak256(abi.encodePacked(blockhash(block.number), seed));
-        return next;
-    }
-    
-    function randomRange(uint256 lower, uint256 upper)
-        external
-        returns (uint256)
-    {
-        return _nextUint() % (upper - lower) + lower;
-    }
-    */
 
     function setBounty() 
         public 
@@ -104,7 +80,7 @@ contract Game is AccessControl {
         require(msg.sender != ceoAddress);
         require(msg.value > 2 * 10 ** 18, "fee must be > 2 TOMO");
         require(!containArray(questionPlayer[currentQuestion], msg.sender), "player has only one answer");
-        questionBounty = questionBounty.safeAdd(msg.value);
+        questionBounty = safeAdd(questionBounty, msg.value);
         questionPlayer[currentQuestion].push(address(uint160(msg.sender)));
         questionAnswer[currentQuestion][msg.sender] = _answer;
         if(!containArray(players, msg.sender)) {
@@ -171,5 +147,22 @@ contract Game is AccessControl {
         }
         
         bounty = 0;
+    }
+
+    function safeAdd(uint256 a, uint256 b) internal pure returns (uint256 c) {
+        c = a + b;
+        require(c >= a);
+    }
+    function safeSub(uint256 a, uint256 b) internal pure returns (uint256 c) {
+        require(b <= a);
+        c = a - b;
+    }
+    function safeMul(uint256 a, uint256 b) internal pure returns (uint256 c) {
+        c = a * b;
+        require(a == 0 || c / a == b);
+    }
+    function safeDiv(uint256 a, uint256 b) internal pure returns (uint256 c) {
+        require(b > 0);
+        c = a / b;
     }
 }
