@@ -7,7 +7,7 @@ contract Game is AccessControl {
     address payable[] public winners;
 
     address payable[] public players;
-    mapping (address=>uint) winCount;
+    mapping (address=>uint) public winCount;
     
     mapping (uint => mapping(address => bytes32)) public questionAnswer; // lưu câu trả lời của các địa chỉ ở mỗi câu hỏi 
     mapping (uint => address payable[]) public questionPlayer; // lưu mảng những địa chỉ trả lời trong mỗi câu hỏi 
