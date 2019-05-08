@@ -62,6 +62,7 @@ contract Game is AccessControl {
         onlyCeo
         external 
         {
+            require(!asked[currentQuestion]);
             require(questionBounty == 0); // tránh trường hợp người chơi đang chơi ceo đặt câu mới 
             require(currentQuestion < 10);
             correctAnswer[currentQuestion] = _correctAnswer;
