@@ -8,7 +8,7 @@ contract AccessControl {
     }
 
     modifier onlyCeo() {
-        require(msg.sender == ceoAddress);
+        require(msg.sender == ceoAddress, "sender must be ceo");
         _;
     }
 
