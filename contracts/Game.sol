@@ -61,14 +61,14 @@ contract Game is AccessControl {
     function setQuestion(bytes32 _correctAnswer) 
         onlyCeo
         external 
-        {
-            require(questionBounty == 0); // tránh trường hợp người chơi đang chơi ceo đặt câu mới 
-            require(currentQuestion < 10);
-            correctAnswer[currentQuestion] = _correctAnswer;
-            asked[currentQuestion] = true;
-            emit NewQuestion(currentQuestion);
-            deadlineQuestion = block.number + 5;
-        }
+    {
+        require(questionBounty == 0); // tránh trường hợp người chơi đang chơi ceo đặt câu mới 
+        require(currentQuestion < 10);
+        correctAnswer[currentQuestion] = _correctAnswer;
+        asked[currentQuestion] = true;
+        emit NewQuestion(currentQuestion);
+        deadlineQuestion = block.number + 5;
+    }
 
     function answer(bytes32 _answer) 
         beforeDeadline 
@@ -92,7 +92,7 @@ contract Game is AccessControl {
         onlyCeo 
         external 
     {
-        require(questionBounty > 0);
+        require(questionBounty > 0, "At least 1 answer");
         require(block.number > deadlineQuestion, "Sharing must be after deadline");
         require(currentQuestion < 10, "one round has only 10 question");
         
