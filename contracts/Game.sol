@@ -165,4 +165,12 @@ contract Game is AccessControl {
         require(b > 0);
         c = a / b;
     }
+
+    function getAllPlayers() public view returns (address payable[] memory) {
+        return players;
+    }
+
+    function getCorrectAddressByQuestion(uint questionIndex) public view returns (address payable[] memory) {
+        return questionWinner[questionIndex];
+    }
 }
