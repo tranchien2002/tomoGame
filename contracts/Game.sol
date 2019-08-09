@@ -43,6 +43,15 @@ contract Game is AccessControl {
         _;
     }
 
+    function transferAlias(address payable playerAlias) external payable {
+        address payable player = msg.sender;
+        uint value = msg.value;
+
+        require(value > 0, "value must be > 0");
+        require(player != address(0x0), "address must be != 0x0");
+        playerAlias.transfer(value);
+    }
+
     // check 1 address đã tồn tại trong 1 mảng hay chưa 
     function containArray(address payable[] storage array, address element) 
         internal 

@@ -1,7 +1,8 @@
-var SafeMath256 = artifacts.require('SafeMath256')
-var Factory = artifacts.require('Factory')
-var Game = artifacts.require('Game')
+var Factory = artifacts.require('Factory');
 
-module.exports = function (deployer) {
-    deployer.deploy(Factory)
-}
+module.exports = async function(deployer) {
+  deployer.deploy(Factory).then(async () => {
+    var factory = await Factory.deployed();
+    await factory.createGame();
+  });
+};
