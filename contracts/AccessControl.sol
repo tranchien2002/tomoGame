@@ -13,7 +13,7 @@ contract AccessControl {
     }
 
     function setCeo(address payable _newCeo) external onlyCeo {
-        require(_newCeo != address(0));
+        require(_newCeo != address(0),"New ceo must be different from '0x0'");
         ceoAddress = _newCeo;
     }
 }

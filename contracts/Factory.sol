@@ -6,19 +6,19 @@ contract Factory is AccessControl {
 
     address[] public games;
 
-    function createGame() 
-        public 
+    function createGame()
+        public
         onlyCeo
-        returns(address) 
+        returns(address)
     {
         address game = address(new Game(msg.sender));
         games.push(game);
         return game;
     }
 
-    function getAllGames() view public returns (address[] memory) {
+    function getAllGames() public view returns (address[] memory) {
         return games;
     }
 
-    function() external payable {}
+    function() external  {}
 }
