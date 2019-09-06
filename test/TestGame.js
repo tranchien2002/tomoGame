@@ -377,7 +377,7 @@ contract('Game', ([ceo, user1, user2]) => {
     });
   });
 
-  describe('shareBounty', async () => {
+  describe('shareBounty if have someone win', async () => {
     let game;
     before(async () => {
       game = await Game.new(ceo, { from: ceo });
@@ -405,7 +405,7 @@ contract('Game', ([ceo, user1, user2]) => {
     });
   });
 
-  describe('shareBounty', async () => {
+  describe('shareBounty if no one win', async () => {
     let game;
     before(async () => {
       game = await Game.new(ceo, { from: ceo });

@@ -42,10 +42,10 @@ contract('Factory', ([ceo, notCeo]) => {
       );
     });
 
-    it('should return game.length = 1 when ceo create a new game. ', async () => {
+    it('should return games.length = 1 when ceo create a new game. ', async () => {
       await factory.createGame({ from: ceo });
       let games = await factory.getAllGames();
-      assert.equal(games.length, 1);
+      assert.equal(games.length, 1, 'should return array of AllGame');
     });
   });
 
