@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/Game.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Game.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">90.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>57/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.93% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>41/54</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>62/68</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-yes">48×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">pragma solidity ^0.5.0;
+&nbsp;
+import "./AccessControl.sol";
+&nbsp;
+contract Game is AccessControl {
+    uint public bounty;
+    address payable[] public winners;
+&nbsp;
+    address payable[] public players;
+    mapping (address=&gt;uint) public winCount;
+&nbsp;
+    mapping (uint =&gt; mapping(address =&gt; bytes32)) public questionAnswer; // lưu câu trả lời của các địa chỉ ở mỗi câu hỏi
+    mapping (uint =&gt; address payable[]) public questionPlayer; // lưu mảng những địa chỉ trả lời trong mỗi câu hỏi
+    mapping (uint =&gt; bool) public asked; // check xem CEO đã đưa ra câu hỏi hay chưa
+    mapping (uint =&gt; address payable[]) public questionWinner; // lưu những địa chỉ trả lời đúng ở mỗi câu hỏi
+&nbsp;
+    bytes32[10] private correctAnswer;
+    uint8 public currentQuestion = 0;
+    uint256 public questionBounty;
+    uint public deadlineQuestion;
+&nbsp;
+    event NewQuestion(uint8 currentQuestion);
+&nbsp;
+    constructor(address payable _ceoAddress) public {
+        ceoAddress = _ceoAddress;
+    }
+&nbsp;
+    modifier hasBounty() {
+        require(bounty &gt; 0, "Bounty must be &gt; 0");
+        _;
+    }
+&nbsp;
+    modifier beforeDeadline() {
+        require(block.number &lt;= deadlineQuestion,"Blocknumber &lt;= Blocknumber + 5");
+        _;
+    }
+&nbsp;
+    function setBounty()
+        public
+        payable
+    {
+        require(msg.value &gt; 0, "Bounty must be &gt; 0");
+        bounty += msg.value;
+    }
+&nbsp;
+    function transferAlias(address payable playerAlias) external payable {
+        uint value = msg.value;
+&nbsp;
+        require(value &gt; 0, "value must be &gt; 0");
+        require(playerAlias != address(0x0), "address must be != 0x0");
+        playerAlias.transfer(value);
+    }
+&nbsp;
+    // check 1 address đã tồn tại trong 1 mảng hay chưa
+    function containArray(address payable[] storage array, address element)
+        internal
+        view
+        returns (bool)
+    {
+        bool found = false;
+        for(uint8 i = 0; i &lt; array.length; i++) {
+            if(array[i] == element) {
+                found = true;
+                break;
+            }
+        }
+        return found;
+    }
+&nbsp;
+    function setQuestion(bytes32 _correctAnswer)
+        external
+        onlyCeo
+    {
+        require(questionBounty == 0,"questionBounty == 0"); // tránh trường hợp người chơi đang chơi ceo đặt câu mới
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(currentQuestion &lt; 10,"Current question &lt; 10");
+        correctAnswer[currentQuestion] = _correctAnswer;
+        asked[currentQuestion] = true;
+        emit NewQuestion(currentQuestion);
+        deadlineQuestion = block.number + 5;
+    }
+&nbsp;
+    function answer(bytes32 _answer)
+        external
+        beforeDeadline
+        payable
+    {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(asked[currentQuestion],"Only answered after the question has been created."); // chỉ được trả lời sau khi câu hỏi đã được đưa ra
+        require(msg.sender != ceoAddress, "Player must be not Admin");
+        require(msg.value &gt; 2 * 10 ** 18, "fee must be &gt; 2 TOMO");
+        require(!containArray(questionPlayer[currentQuestion], msg.sender), "player has only one answer");
+        questionBounty = safeAdd(questionBounty, msg.value);
+        questionPlayer[currentQuestion].push(address(uint160(msg.sender)));
+        questionAnswer[currentQuestion][msg.sender] = _answer;
+        if(!containArray(players, msg.sender)) {
+            players.push(msg.sender);
+        }
+    }
+&nbsp;
+    function shareQuestionBounty()
+        external
+        onlyCeo
+    {
+        require(questionBounty &gt; 0, "At least 1 answer");
+        require(block.number &gt; deadlineQuestion, "Sharing must be after deadline");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(currentQuestion &lt; 10, "one round has only 10 question");
+&nbsp;
+        for(uint i = 0; i &lt; questionPlayer[currentQuestion].length; i++) {
+            if(questionAnswer[currentQuestion][questionPlayer[currentQuestion][i]] == correctAnswer[currentQuestion]) {
+                questionWinner[currentQuestion].push(questionPlayer[currentQuestion][i]);
+                winCount[questionPlayer[currentQuestion][i]] ++;
+            }
+        }
+&nbsp;
+        if(questionWinner[currentQuestion].length &gt; 0) {
+            uint bountySharing = questionBounty / questionWinner[currentQuestion].length;
+            for(uint8 i = 0; i &lt; questionWinner[currentQuestion].length; i++) {
+                questionWinner[currentQuestion][i].transfer(bountySharing);
+            }
+            currentQuestion ++;
+            questionBounty = 0;
+        }
+        else {
+            currentQuestion = 10;
+        }
+&nbsp;
+        /*
+            Muốn ăn được bounty thì ít nhất phải tham gia trả lời cả 10 câu hỏi
+            =&gt; chỉ cần xét trong số những người tham gia ở câu cuối để tìm ra người có winCount = 10
+        */
+        if(currentQuestion &gt;= 9) {
+            for(uint8 i = 0; i &lt; questionPlayer[9].length; i++) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(winCount[questionPlayer[9][i]] == 10) {
+                    winners.push(questionPlayer[9][i]);
+                }
+            }
+        }
+    }
+&nbsp;
+    function shareBounty()
+        external
+        onlyCeo
+        hasBounty
+    {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(block.number &gt; deadlineQuestion, "Sharing must be after deadline");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(currentQuestion &gt; 9, "Sharing bounty must be after 10 question");
+&nbsp;
+        if(winners.length &gt; 0) {
+            uint bountySharing = address(this).balance / winners.length;
+            for(uint8 i = 0; i &lt; winners.length; i++) {
+                winners[i].transfer(bountySharing);
+            }
+        }
+        else {
+            ceoAddress.transfer(address(this).balance);
+        }
+&nbsp;
+        bounty = 0;
+    }
+&nbsp;
+    function safeAdd(uint256 a, uint256 b) internal pure returns (uint256 c) {
+        c = a + b;
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(c &gt;= a,"After performing addition c is greater than a");
+    }
+<span class="fstat-no" title="function not covered" >    function safeSub(uint256 a, uint256 b) internal pure returns (uint256 c</span>) {
+<span class="cstat-no" title="statement not covered" >        require(b &lt;= a,"Before subtracting b must be less than a")</span>;
+<span class="cstat-no" title="statement not covered" >        c = a - b</span>;
+    }
+<span class="fstat-no" title="function not covered" >    function safeMul(uint256 a, uint256 b) internal pure returns (uint256 c</span>) {
+<span class="cstat-no" title="statement not covered" >        c = a * b</span>;
+<span class="cstat-no" title="statement not covered" >        require(a == 0 || c / a == b,"a == 0 || c / a == b")</span>;
+    }
+<span class="fstat-no" title="function not covered" >    function safeDiv(uint256 a, uint256 b) internal pure returns (uint256 c</span>) {
+<span class="cstat-no" title="statement not covered" >        require(b &gt; 0,"When division b must be greater than 0")</span>;
+<span class="cstat-no" title="statement not covered" >        c = a / b</span>;
+    }
+&nbsp;
+    function getAllPlayers() public view returns (address payable[] memory) {
+        return players;
+    }
+&nbsp;
+    function getCorrectAddressByQuestion(uint questionIndex) public view returns (address payable[] memory) {
+        return questionWinner[questionIndex];
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 06 2019 09:06:09 GMT+0700 (Indochina Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
